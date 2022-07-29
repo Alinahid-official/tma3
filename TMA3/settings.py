@@ -23,7 +23,7 @@ LOGIN_REDIRECT_URL = '/part4/'
 SECRET_KEY = 'django-insecure-9dh3&==7vlq0@)e8li0&!axgx5jmorbn_x7m_%@6y&llg7^8-a'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
