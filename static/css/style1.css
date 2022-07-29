@@ -1,0 +1,430 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto+Slab:400,700");
+@import url("https://fonts.googleapis.com/css?family=Oxygen");
+
+/* All Basic HTML Elements*/
+body {
+	font-family: 'Oxygen', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+	text-decoration: none; /* remove underlines from hyperlinks*/
+}
+
+
+section {
+	border-bottom: 3px solid #eee;
+	padding-bottom: 100px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+/* Wrapper */
+#wrapper {
+    display: -moz-flex;
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    -moz-flex-direction: row-reverse;
+    -webkit-flex-direction: row-reverse;
+    -ms-flex-direction: row-reverse;
+    flex-direction: row-reverse;
+    min-height: 100vh;
+}
+
+/* Main */
+#main {
+    -moz-flex-grow: 1;
+    -webkit-flex-grow: 1;
+    -ms-flex-grow: 1;
+    flex-grow: 1;
+    -moz-flex-shrink: 1;
+    -webkit-flex-shrink: 1;
+    -ms-flex-shrink: 1;
+    flex-shrink: 1;
+    width: 100%;
+}
+
+#main > .main_center {
+    padding: 100px;
+}
+
+.main-banner-caption p {
+	font-size: 14px;
+	line-height: 25px;
+	color: #7a7a7a;
+	letter-spacing: 0.2px;
+    text-align: center;
+}
+
+
+
+/* Part 2 Main (Some of this ended up being reused for other parts as well) */
+
+.main2-banner-title {
+    font-size: 24px;
+    text-align: center;
+}
+.loginTitle{
+    text-align: center;
+    margin-bottom: 40px;
+    padding-top: 50px;
+
+    font-family: 'Oxygen',sans-serif,sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+}
+#main > .main2_center {
+    padding-top: 100px;
+    padding-left: 100px;
+    height: 100%;
+}
+
+.main2-banner-container{
+    height: 80%;
+}
+
+
+.main2-banner-content-text-centered{
+    text-align: center;
+}
+
+.main2-banner-content-image-centered{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: auto;
+    height: auto;
+  }
+
+.main2-banner-content-page-navigation{
+    text-align: center;
+}
+
+ul .nav_dropdown {
+    display: none;
+    background-color: #ffd800;
+    line-height: 40px;  
+}
+
+#quizul:hover .nav_dropdown{
+    
+    display: block;
+}
+
+#animationsul:hover .nav_dropdown{
+    
+    display: block;
+}
+
+.nav_dropdown:hover{
+    color: #FFF;
+}
+
+/* Header */
+#header {
+    display: -moz-flex;
+    display: -webkit-flex;
+    display: -ms-flex;
+    position: relative;
+    height: 104px;
+    background-color: #5a4de7;
+    margin: -100px -100px 30px -100px;
+}
+
+.loginLogo{
+/*font-family: 'Oxygen',sans-serif,sans-serif;*/
+
+font-family: 'proxima-nova', sans-serif;
+
+        font-weight: 700;
+        font-size: 50px;
+        text-align: center;
+        color: #004687;
+}
+.loginHeader{
+    position: relative;
+    height: 70px;
+    line-height: 70px;
+    background-color: #004687;
+    margin: -100px -100px 30px -100px;
+    font-family: 'Oxygen',sans-serif,sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    text-align: center;
+    color: white;
+}
+
+
+#header .logo {
+    text-align: center;
+    display: inline-block;	
+    width: 100%;
+    height: 100px;
+    line-height: 100px;
+}
+#header .logo a {
+    font-size: 24px;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	color: #fff;
+	margin-right: 100px;
+}
+
+/*Navigation in header */
+.nav_button{
+    font-size: 24px;
+	font-weight: 700;
+    height: 100%;
+    width: auto;
+    text-align: center;
+    padding-left: 10px;
+    padding-right: 10px;
+	text-transform: uppercase;
+	color: #FFF;
+	transition: all 0.5s;
+    margin-left: 10px;
+	letter-spacing: 1px;
+    position: relative;
+    line-height: 104px;
+    cursor: pointer
+}
+
+.nav_button:hover{
+    color: #24252d;
+}
+
+/*SideBar with Menu*/
+#sidebar {
+    -moz-flex-grow: 0;
+    -webkit-flex-grow: 0;
+    -ms-flex-grow: 0;
+    flex-grow: 0;
+    -moz-flex-shrink: 0;
+    -webkit-flex-shrink: 0;
+    -ms-flex-shrink: 0;
+    flex-shrink: 0;
+    background-color: #24252d;
+    position: relative;
+    width: 420px;
+    transition: 0.4s;
+}
+
+#sidebar > .inner_sidebar {
+    position: relative;
+    width: 420px;
+}
+#menu ul {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    color: #3d4449;
+    font-family: "Roboto Slab", serif;
+    font-family: 400;
+    letter-spacing: 0.075em;
+    list-style: none;
+    margin-bottom: 0;
+    padding: 0;
+    text-transform: uppercase;
+}
+
+#menu ul a {
+	color: #fff;
+    border-bottom: 0;
+    cursor: pointer;
+    display: block;
+    font-size: 15px;
+    font-weight: 300;
+    padding: 15px 0px;
+    padding-left: 30px;
+    transition: .4s;
+}
+
+#menubutton:hover{
+    color: #24252d;
+}
+
+#menu ul a:hover,
+#menu ul span:hover {
+    color: #008080;
+    padding-left: 50px;
+}
+
+/*Login utils*/
+
+.loginForm {
+    margin: auto;
+    width: 20%;
+
+    background-color: white;
+    border-radius: 25px;
+    margin-top: 50px;
+    height: 500px;
+    }
+.applicationForm {
+    width: 40%;
+    margin: auto;
+    background-color: white;
+    border-radius: 25px;
+    margin-top: 50px;
+    height: 300px;
+
+}
+.loginText{
+    margin-right: auto;
+    display: flex;
+    justify-content: center;
+
+    font-family: 'Oxygen',sans-serif,sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+}
+.buttonContainer {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .loginButton {
+    position: relative;
+    display: block;
+    width: 150px;
+    height: 36px;
+    border-radius: 18px;
+    background-color: #004687;
+    border: solid 1px transparent;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 300;
+    cursor: pointer;
+    transition: all .1s ease-in-out;
+    margin-top: 20px;
+    
+  }
+.loginButton:hover{
+    background-color: #00BFFF;
+}
+.applicationBookmarkButton{
+    position: relative;
+    display: inline-block;
+    width: 200px;
+    height: 70px;
+    border-radius: 18px;
+    background-color: #004687;
+    border: solid 1px transparent;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 300;
+    cursor: pointer;
+    transition: all .1s ease-in-out;
+    margin-top: 20px;
+    margin-left: 40px;
+}
+
+.applicationCourseButton{
+    position: relative;
+    display: inline-block;
+    width: 200px;
+    height: 70px;
+    border-radius: 18px;
+    background-color: #004687;
+    border: solid 1px transparent;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 300;
+    cursor: pointer;
+    transition: all .1s ease-in-out;
+    margin-top: 20px;
+    margin: auto;
+    margin-left: 40px
+
+}
+  .lds-dual-ring {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    margin-top: 30px;
+    
+  }
+  .lds-dual-ring:after {
+    content: " ";
+    display: block;
+    width: 30px;
+    height: 30px;
+    margin: 8px;
+    border-radius: 50%;
+    border: 6px solid #1c89ff;
+    border-color: #1c89ff transparent #1c89ff transparent;
+    animation: lds-dual-ring 1.2s linear infinite;
+    display: flex;
+    justify-content: center;
+  }
+  @keyframes lds-dual-ring {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  .selectLesson:hover{
+      color:#004687;
+      cursor: pointer;
+  }
+
+.partTitle {
+    color: #222222;
+    font-size: 16px;
+    font-weight: bold;
+}
+.addToCartButton{
+    background-color: #02054f;
+    cursor: pointer;
+    color: #FFF;
+    font-size: 12px;
+	font-weight: 700;
+}
+.checkoutButton{
+    background-color: #02054f;
+    cursor: pointer;
+    color: #FFF;
+    font-size: 24px;
+	font-weight: 700;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+/* Other */
+
+.bold {
+    font-weight: bold;
+}
+
+.blueText {
+
+    color: blue;
+}
+
+.brownText {
+    color: brown;
+}
+
+.redText{
+
+    color: red;
+}
+
+.greenText {
+    
+    color: green;
+}
+

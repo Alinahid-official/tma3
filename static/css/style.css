@@ -1,0 +1,336 @@
+a{
+    text-decoration: none;
+    color:#000;
+}
+a:hover{
+    color:#000;
+    text-decoration: none;
+}
+
+#bar{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 12;
+    cursor: pointer;
+}
+.nav-home{
+    z-index: 10;
+    position: absolute;
+    top: 0;
+    left: 0;
+    flex-direction: column;
+    width: 20%;
+    height:100vh;
+    transform: all .5s;
+    
+}
+/* <----------Home----------> */
+.nav-top-blue a:hover{
+    background-color:rgb(53, 144, 218);
+    color:#fff;
+}
+.nav-top a:hover{
+    background-color:#000;
+    color:#fff;
+}
+.nav-home a:hover{
+    background-color:#000;
+    color:#fff;
+   
+}
+
+.bg-one{
+    background-color: green;
+}
+.bg-two{
+    background-color:orange
+}
+.bg-three{
+    background-color:orangered
+}
+.bg-four{
+    background-color:rgba(0, 153, 255, 0.962)
+}
+.bg-five{
+    background-color: rgb(55, 53, 53);
+}
+.bg-six{
+    background-color: rgb(9, 119, 216);
+}
+.color-one{
+    color: #fff;
+}
+.color-two{
+    color: rgba(0, 0, 0, 0.366);
+}
+
+.card-one{
+  transition: box-shadow 0.5s;  
+}
+
+
+.card-one:hover{
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+.fw-1{
+    font-weight: 100;
+}
+.fw-2{
+    font-weight: 200;
+}
+.fw-3{
+    font-weight: 300;
+}
+.fw-bold{
+    font-weight : bold;
+}
+.font-110{
+    font-size:110%;
+}
+.font-90{
+    font-size:90%;
+}
+.font-80{
+    font-size:80%;
+}
+.font-120{
+    font-size:120%;
+}
+.font-130{
+    font-size: 130%;
+}
+.font-140{
+    font-size: 140%;
+}
+.font-150{
+    font-size: 150%;
+}
+.font-160{
+    font-size: 160%;
+}
+.font-170{
+    font-size: 170%;
+}
+.font-180{
+    font-size: 180%;
+}
+
+.font-190{
+    font-size: 190%;
+}
+.font-200{
+    font-size: 200%;
+}
+
+.m-1{
+    margin: 1%;
+}
+.m-2{
+    margin: 2%;
+}
+.m-3{
+    margin: 3%;
+}
+.m-4{
+    margin: 4%;
+}
+.m-5{
+    margin: 5%;
+}
+.m-10{
+    margin: 10%;
+}
+.mv-1{
+    margin: 1% 0;
+}
+.mv-2{
+    margin: 2% 0;
+}
+.mv-3{
+    margin: 3% 0;
+}
+.mv-4{
+    margin: 4% 0;
+}
+.mv-5{
+    margin: 5% 0;
+}
+.mv-10{
+    margin: 10% 0;
+}
+.mh-1{
+    margin: 0 1%;
+}
+.mh-2{
+    margin: 0 2%;
+}
+.mh-3{
+    margin: 0 3%;
+}
+.mh-4{
+    margin: 0 4%;
+}
+.m-5{
+    margin: 0 5%;
+}
+.mh-10{
+    margin: 0 10%;
+}
+.mt-1{
+    margin-top: 1%;
+}
+.mt-2{
+    margin-top: 2%;
+}
+.mt-3{
+    margin-top: 3%;
+}
+.mt-4{
+    margin-top: 4%;
+}
+.mt-5{
+    margin-top: 5%;
+}
+.pad-1{
+    padding: 1%;
+}
+.pad-2{
+    padding:2% ;
+}
+.pad-3{
+    padding:3% ;
+}
+.pad-4{
+    padding:4% ;
+}
+.pad-5{
+    padding:5% ;
+}
+.pad-v-1{
+    padding:1% 0;
+}
+.pad-v-2{
+    padding:2% 0;
+}
+.pad-v-3{
+    padding:3% 0;
+}
+.pad-v-4{
+    padding:4% 0;
+}
+.pad-v-5{
+    padding:5% 0;
+}
+.pad-h-1{
+    padding:0 1% ;
+}
+.pad-h-2{
+    padding:0 2% ;
+}
+.pad-h-3{
+    padding:0 3% ;
+}
+.pad-h-4{
+    padding:0 4% ;
+}
+.pad-h-5{
+    padding:0 5% ;
+}
+.pad-h-1{
+    padding:0 1%;
+}
+
+.pad-1-2{
+    padding:1% 2%;
+}
+.w-fit{
+    width:fit-content;
+}
+.w-100{
+    width: 100%;
+}
+.w-75{
+    width: 75%;
+}
+.w-50{
+    width: 50%;
+}
+.w-25{
+    width: 25%;
+}
+
+.flex{
+    display: flex;
+}
+.jc-center{
+    justify-content: center;
+}
+.jc-between{
+    justify-content: space-between;
+}
+
+.jc-around{
+    justify-content: space-around;
+}
+
+.align-center{
+    text-align:center;
+}
+.align-left{
+    text-align:left;
+}
+
+.align-right{
+    text-align:right;
+}
+
+.border{
+    border:1px solid rgba(0, 0, 0, 0.415)
+}
+.border-b{
+    border-bottom:1px solid rgba(0, 0, 0, 0.415)
+}
+button{
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    transition: box-shadow 0.5s;
+}
+
+button:hover{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.hide{
+    display: none
+}
+
+.show{
+    display: block;
+}
+
+#blur{
+    display:none;
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+    z-index: 10;
+    background-color: rgba(0, 0, 0, 0.63);
+}
+.list-container{
+    background-color: #fff;
+    height: 60%;
+    width:60%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%)
+}
+
+.wrapper{
+    display:grid;
+    grid-template-columns: repeat(auto-fit,20rem);
+    justify-content: center;
+}

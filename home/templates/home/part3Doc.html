@@ -1,0 +1,109 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta http-equiv="Cache-control" content="no-cache">
+
+    <script type="text/javascript" src={% static 'home/homeScript.js' %}></script>
+    <title>Harshit Venket Subramanian Assignment 3 HomePage</title>
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/v4-shims.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+</head>
+
+<body>
+
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+        <!-- Main -->
+        <div id="main">
+            <div class="main2_center">
+
+                <!-- Header -->
+                
+                <div class="nav-top flex jc-center bg-five">
+                    <div class=" pad-1" id="bar"><i class="fas fa-bars color-one w-100"></i></div>
+                    <div class="pad-1 color-one">TMA3</div>
+                    <a class="pad-1 color-one" href="/documentation/architecture">Architecture</a>
+                    <a class="pad-1 color-one" href="/documentation/part1doc">PART1 DOC</a>
+                    <a class="pad-1 color-one" href="/documentation/part2doc">PART2 DOC</a>
+                    <a class="pad-1 color-one" href="/documentation/part3doc">PART3 DOC</a>
+                    <a class="pad-1 color-one" href="/documentation/part4doc">PART4 DOC</a>
+                </div>
+                <div id="side-nav" class="nav-home bg-five flex jc-center">
+                    <a class="pad-4 color-one" href="/documentation">Documentation</a>
+                    <a class="pad-4 color-one" href="/part1">PART 1 CHECK VISITS</a>
+                    <a class="pad-4 color-one" href="/part2">PART 2 SLIDE SHOW</a>
+                    <a class="pad-4 color-one" href="/part3">PART 3 COMPUTER STORE</a>
+                    <a class="pad-4 color-one" href="/part4">PART 4 COMPUTER STORE</a>
+                </div>
+                <!-- Banner -->
+                <section class="main2-banner-container" id="Main2-container">
+                    <!--It is here where the content presented can be updated from main2.js-->
+                    <div class="main2-banner-title">Part 3 Documentation</div>
+                    <div id="main2-banner-content">
+                        <img src="/static/img/part3Data.PNG" class="main2-banner-content-image-centered">
+                        <p class="main2-banner-content-text-centered">
+                            All the code and files used for this app are contained inside the part3 folder. To connect to this app, either press the link in the sidebar,
+                            or you can directly connect to it by entering the URL http://ocalhost:8000/part3/ . I chose to name this app simply part3 rather then something
+                            like computer store to avoid confusion between the part4 computer store</p>
+                        <p class="main2-banner-content-text-centered">
+                            Upon connecting to the app, the user presented with a welcome screen. Here the user can use the top navigation to navigate to different sections of this app.
+                            The home button as you may have guessed, sends a get request to the server to render the homepage. The contact tab, will send a get request to render the contact
+                            page. In the contact section of this app, the user can enter the feedback and submit it. 
+                        </p>
+
+                        <p class="main2-banner-content-text-centered">
+                            The parts button navigates users to the parts section of this app. It is here the user can select and view all the available parts that the computer store has to 
+                            offer. Since we are not allowed to use databases for this part, all the data is hard coded (as required) into a json file called tempData located in the part3 app folder.
+                            Similar to what was done in part 2, the command folder in part3 allows the client to send various commands to the server. In this case, we send a command to fetch all 
+                            json data required to view all the computer store parts. I reccomend taking a look at this file to understand how the data is stored and used. The json file is organized
+                            into computers, and individual computer parts. A computer is a packaged computer that comes with default computer parts. The computer has a name, and all its relevant
+                            parts. All the parts in a computer refer to computer parts by their ids. For example, a computer with cpu value of 2 refers to the cpu json where the id is 2. A computer has a 
+                            id, name, price, cpu, graphicsCard, hardDrive, ram, os, display, and soundCard. Note, this price value is not used in part 3 and the prices for a computer
+                            are calculated on the client end by adding the prices for all the individual parts. On that note, each computer part (cpu, soundCard, etc) has a id, name, price, and description.
+                            An example is shown in the image above.
+                            The script parts.js will fetch the jason data for each part and display it in a viewable format on the webrowser. 
+                        </p>
+
+                        <p class="main2-banner-content-text-centered">
+                           The computers button in the nav navigates users to the computers section of this app. Similar to what was done in the parts page, the script computers.js will grab all the computers
+                           via json and display them to the user. For each computer, the user is given the option to either add that computer to their card, or to first customize the computer 
+                           by selecting their own custom parts (default parts for the computer are there initially) and then add the computer to their card. The UI will dynamically update as parts are changed.
+                           When a computer is added to the users cart, we track what is added to the users cart via cookies. On the client side, there is a cookie for the total number of orders in the 
+                           users cart, and a cookie for each individual computer that was added to the users cart. These indiviual cookies are deleted when the user purchases the item, or deletes the item 
+                           from their cart. Each cookie follows a standard naming convention cartItem_XX where XX is the id for the cart item, and the values of the cookie correspond to the 
+                           ids of the parts that were customized (or defaulted) for that computer. When the user presses the cart button in the navigation,
+                           the client computer looks at all the relevant cookies, and from their build the UI so the user can view all the computers that were added to the users cart. The user can choose to delete
+                           items from their cart (deletes the cookie corresponding to that computer), or choose to proceed to checkout, where the user can enter their payment info and purchase all items
+                           in their cart. All cookies are deleted after the user checksout and pays for all their items. 
+
+                        </p>
+                    <!--End of content update-->
+                </section>
+
+               
+
+
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+    </div>
+    <script type="text/javascript" src="/static/js/navbar.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-180348448-1"></script>
+
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Instructions</title>
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/v4-shims.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+        <link rel="icon" href="images/favicon.png" type="image/gif">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    </head>
+    <body>
+        <div>
+            <div class="nav-top-blue flex jc-center bg-six">
+              <div class=" pad-1" id="bar"><i class="fas fa-bars color-one w-100"></i></div>
+              <a class="pad-1 color-one" href="/part4">Home</a>
+                {% if request.user.is_authenticated %}
+                <a class="pad-1 color-one" href="#">{{request.user}}</a>
+                <a class="pad-1 color-one" href="/part4/logout">logout</a>
+                <a class="pad-1 color-one" href="/part4/cart">cart</a>
+                {% else%}
+                <a class="pad-1 color-one" href="/part4/login">login</a>
+                <a class="pad-1 color-one" href="/part4/signup">register</a>
+                {% endif %}
+                    
+            </div>
+            <div id="side-nav" class="nav-home bg-five flex jc-center">
+                <a class="pad-4 color-one" href="/documentation">Documentation</a>
+                <a class="pad-4 color-one" href="/part1">PART 1 CHECK VISITS</a>
+                <a class="pad-4 color-one" href="/part2">PART 2 SLIDE SHOW</a>
+                <a class="pad-4 color-one" href="/part3">PART 3 COMPUTER STORE</a>
+                <a class="pad-4 color-one" href="/part4">PART 4 COMPUTER STORE</a>
+            </div>
+          </div>
+        <div  id="blur">
+            <button id="closeBtn">close</button>
+            <div class="list-container hide" id="cpuList">
+                {% for cpu in cpus %}
+                <div >
+                    <div class="text">{{cpu.name}}
+                        <input class="price hide" value="{{cpu.price}}" type="text">
+                        <input class="id hide" value="{{cpu.id}}" type="text">
+                    </div>
+                    <button  class="selectCpuBtn color-one bg-two">select</button>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="list-container hide" id="ramList">
+                {% for ram in rams %}
+                <div >
+                    <div class="text">{{ram.name}}
+                        <input class="price hide" value="{{ram.price}}" type="text">
+                        <input class="id hide" value="{{ram.id}}" type="text">
+                    </div>
+                    <button  class="selectRamBtn color-one bg-two">select</button>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-4 pad-v-2 w-100 ">
+                    <div class="border">
+                        <img  width=90% src="/media/{{computer.img}}" alt="" srcset="">
+                    </div>
+                    <div class="row pad-v-4">
+                        <div  class="col"><button id="addToCart" class="w-100 pad-5 bg-two color-one fw-bold">&#128722 ADD TO CART</button></div>
+                        <div  class="col"><button id="buyNow" class="w-100 pad-5 bg-three color-one fw-bold">&#128498 BUY NOW</button></div>
+                    </div>
+                </div>
+                <div class="col-8">
+                    <div class="w-100 border">
+                        <div class="font-150 fw-bold"><span>&#8377</span><span id="price"></span></div>
+                        <div class="w-100 pad-2 border-b">
+                            <h3>Specification</h3>
+                            <input class="hide" id='name' value="{{computer.name}}" type="text">
+                        </div>
+                        <div class="pad-2">
+                            <div class="font-140">Customizable Components</div>
+                            <div class="font-120">You can change the Specification by clicking on change button</div>
+                            <div class="pad-2">
+                                <div class="pad-v-2 ">
+                                    <div >
+                                        <img src="/static/img/cpu-2.png" alt="" srcset="">
+                                        <input class="hide" id="cpuId" value="{{computer.cpu.id}}"/> 
+                                        <input class="hide" id="cpu" value="{{computer.cpu.price}}"/> 
+                                        <span id="cpuText">{{computer.cpu.name}}</span>
+                                    </div>
+                                    <div ><button id="changeCpu" class="mt-1 bg-four color-one" type="button">Change</button></div>
+                                </div>
+                                <div class="pad-v-2">
+                                    <div>
+                                        <img src="/static/img/ram-2.png" alt="" srcset="">
+                                        <input class="hide" id="ramId" value="{{computer.ram.id}}"/> 
+                                        <input class="hide" id="ram" value="{{computer.ram.price}}"/> 
+                                        <span id="ramText">{{computer.ram.name}}</span>
+                                    </div>
+                                    <button id="changeRam" class="mt-1 bg-four color-one">Change</button>
+                                </div>
+                                <div class="pad-v-2 ">
+                                    <div>
+                                        <img src="/static/img/monitor-2.png" alt="" srcset="">
+                                        <input class="hide" id="monitor" value="{{computer.display.price}}"/>
+                                        <input class="hide" id="monitorId" value="{{computer.display.id}}"/>
+                                        <span id="monitorText">{{computer.display.name}}</span>
+                                     </div>
+                                    <button id="changeMonitor" class="mt-1 bg-four color-one">Change</button>
+                                </div>
+                                <div class="pad-v-2">
+                                    <div>
+                                        <img src="/static/img/hard-disk-2.png" alt="" srcset="">
+                                        <input class="hide" id="hardDisk" value="{{computer.hardDisk.price}}"/>
+                                        <input class="hide" id="hardDiskId" value="{{computer.hardDisk.id}}"/>
+                                        <span id="hardDiskText">{{computer.hardDisk.name}}</span> 
+                                    </div>
+                                    <button id="changeHardDisk" class="mt-1 bg-four color-one">Change</button>
+                                </div>
+                                <div class="pad-v-2 ">
+                                    <div>
+                                        <img src="/static/img/sound-2.png" alt="" srcset="">
+                                        <input class="hide" id="sound" value="{{computer.sound.price}}"/>
+                                        <input class="hide" id="soundId" value="{{computer.sound.id}}"/>
+                                        <span id="soundText">{{computer.sound.name}}</span> 
+                                    </div>
+                                    <button id="changeSound" class="mt-1 bg-four color-one">Change</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% comment %} <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script> {% endcomment %}
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="/static/js/navbar.js"></script>
+        <script src="/static/js/main.js"></script>
+    </body>
+</html>

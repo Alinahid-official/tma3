@@ -1,0 +1,95 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta http-equiv="Cache-control" content="no-cache">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script type="text/javascript" src={% static 'home/homeScript.js' %}></script>
+    <title>Harshit Venket Subramanian Assignment 3 HomePage</title>
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/v4-shims.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+</head>
+
+<body>
+
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+        <!-- Main -->
+        <div id="main">
+            <div class="main2_center">
+
+                <!-- Header -->
+                <div class="nav-top flex jc-center bg-five">
+                    <div class=" pad-1" id="bar"><i class="fas fa-bars color-one w-100"></i></div>
+                    <a class="pad-1 color-one" href="/documentation/architecture">Architecture</a>
+                    <a class="pad-1 color-one" href="/documentation/part1doc">PART1 DOC</a>
+                    <a class="pad-1 color-one" href="/documentation/part2doc">PART2 DOC</a>
+                    <a class="pad-1 color-one" href="/documentation/part3doc">PART3 DOC</a>
+                    <a class="pad-1 color-one" href="/documentation/part4doc">PART4 DOC</a>
+                </div>
+                <div id="side-nav" class="nav-home bg-five flex jc-center">
+                    <a class="pad-4 color-one" href="/documentation">Documentation</a>
+                    <a class="pad-4 color-one" href="/part1">PART 1 CHECK VISITS</a>
+                    <a class="pad-4 color-one" href="/part2">PART 2 SLIDE SHOW</a>
+                    <a class="pad-4 color-one" href="/part3">PART 3 COMPUTER STORE</a>
+                    <a class="pad-4 color-one" href="/part4">PART 4 COMPUTER STORE</a>
+                </div>
+
+                <!-- Banner -->
+                <section class="main2-banner-container" id="Main2-container">
+                    <!--It is here where the content presented can be updated from main2.js-->
+                    <div class="main2-banner-title">Part 2 Documentation</div>
+                    <div id="main2-banner-content">
+                        <p class="main2-banner-content-text-centered">
+                            All the code and files used for this app are contained inside the slideShow folder. To connect to this app, either press the link in the sidebar,
+                            or you can directly connect to it by entering the URL http://ocalhost:8000/part2/</p>
+                        <p class="main2-banner-content-text-centered">
+                                Upon connecting to this app, the main2.js script is run (located in the static folder). In this app, there are 20 images located within the 
+                                static folder. The goal is to fetch these images from the server and render them in a slide show on the client side. To achieve this,
+                                we will use blob fetch to get the image data. In main2.js, we first fetch the relevant json data for the images. In the slideShow app folder
+                                there is a json file called Image_data. Each entry in this json file contains a caption and a imageURL for each of the images. So, on the client
+                                end we first send a get request to the server. This get request has a very special URL in that it is a commmand URL. Within the slideShow app folder,
+                                I have created a folder called command. This command folder contains special URLs that the client can run in order to perform certain command. In our
+                                case, we will run GET /slideshow/command/getJson/. When this get request is sent, Django will look in the command URL file to look for the corresponding
+                                command. It then runs the getJson function in the views. This function will read the json data stored on the server, and send it back to the client
+                                in JSON format. With this JSON data, the client now has the caption data and image url data for each of the images.
+                        </p>
+
+                        <p class="main2-banner-content-text-centered">
+                            When you first connect to the slideshow app, it might take around 20-30 seconds to preload all the images. Once all the images are loaded, the buttons will load at the bottom navigation.
+                            To start the slideshow, select the sequence order which is located above the canvas, and then press the start button in the bottom button navigation.
+                            The images for the slideshow are obtained in a similar fashion to how the json data was obtained. The client runs a command GET request, and the server returns
+                            the client the image in blob format.
+                        </p>
+                    <!--End of content update-->
+                </section>
+
+                <div class="main2-banner-content-page-navigation" id="Main2-Page-Navigation">
+                </div>
+
+
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        
+    </div>
+    <script type="text/javascript" src="/static/js/navbar.js"></script>
+</body>
+
+</html>

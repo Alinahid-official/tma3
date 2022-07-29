@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+    <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-180348448-1"></script>
+
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Instructions</title>
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/v4-shims.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+        <link rel="icon" href="images/favicon.png" type="image/gif">
+    </head>
+    <body>
+      <div>
+        <div class="nav-top-blue flex jc-center bg-six">
+          <div class=" pad-1" id="bar"><i class="fas fa-bars color-one w-100"></i></div>
+          <a class="pad-1 color-one" href="/part4">Home</a>
+          {% if request.user.is_authenticated %}
+          <a class="pad-1 color-one" href="#">{{request.user}}</a>
+          <a class="pad-1 color-one" href="/part4/logout">logout</a>
+          <a class="pad-1 color-one" href="/part4/cart">cart</a>
+          {% else%}
+          <a class="pad-1 color-one" href="/part4/login">login</a>
+          <a class="pad-1 color-one" href="/part4/signup">register</a>
+          {% endif %}
+          
+        </div>
+        <div id="side-nav" class="nav-home bg-five flex jc-center">
+            <a class="pad-4 color-one" href="/documentation">Documentation</a>
+            <a class="pad-4 color-one" href="/part1">PART 1 CHECK VISITS</a>
+            <a class="pad-4 color-one" href="/part2">PART 2 SLIDE SHOW</a>
+            <a class="pad-4 color-one" href="/part3">PART 3 COMPUTER STORE</a>
+            <a class="pad-4 color-one" href="/part4">PART 4 COMPUTER STORE</a>
+        </div>
+      </div>
+      
+        <div class="container-one pad-5 w-100">
+            <div class="wrapper ">
+            {% for computer in computers %}
+            <div>
+                <a  href="/part4/pc_one/{{computer.id}}">
+                  <div class="container mv-2 card-one">
+                    <div class="flex align-center pad-v-2">
+                      <img width=70% src="/media/{{computer.img}}" alt="" srcset="">
+                    </div>
+                    <div class="font-120 pad-v-3 align-center">
+                      {{computer.name}}
+                    </div>
+                    <div class="pad-v-2 ">
+                      <img src="./static/img/processor.png" alt="" srcset=""> {{computer.cpu.short_name}}
+                    </div>
+                    <div class="pad-v-2">
+                      <img src="./static/img/ram-caticon.svg" alt="" srcset=""> {{computer.ram.short_name}}
+                    </div>
+                    <div class="pad-v-2 ">
+                      <img src="./static/img/monitor.png" alt="" srcset=""> {{computer.display.short_name}}
+                    </div>
+                    <div class="pad-v-2">
+                      <img src="./static/img/hard-disk.png" alt="" srcset="">{{computer.hardDisk.short_name}}
+                    </div>
+                    <div class="pad-v-2 ">
+                      <img src="./static/img/sound.png" alt="" srcset=""> {{computer.sound.short_name}}
+                    </div>
+                    <div class="color-two font-80 pad-v-2">
+                      Black
+                    </div>
+                    <div class="pad-v-2">
+                        <span class="rating bg-one color-one w-fit font-80 pad-h-2" style="border-radius:5px ;">
+                          4.5 &#9733
+                        </span>
+                        <span class="pad-h-3 color-two">
+                          (330)
+                        </span>
+                    </div>
+                    <div class="font-180 fw-bold">
+                      <span >&#8377</span> <span class="price">40000</span>
+                    </div>
+                  </div>
+                </a>
+              </div>    
+            {% endfor %}
+            </div>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="/static/js/navbar.js"></script>
+    </body>
+</html>

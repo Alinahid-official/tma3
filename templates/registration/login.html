@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+    <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-180348448-1"></script>
+
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Instructions</title>
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/v4-shims.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+        <link rel="icon" href="images/favicon.png" type="image/gif">
+    </head>
+    <body>
+        <div>
+            <div class="nav-top-blue flex jc-center bg-six">
+              <div class=" pad-1" id="bar"><i class="fas fa-bars color-one w-100"></i></div>
+              <a class="pad-1 color-one" href="/part4">Home</a>
+              
+            </div>
+            <div id="side-nav" class="nav-home bg-five flex jc-center">
+                <a class="pad-4 color-one" href="/documentation">Documentation</a>
+                <a class="pad-4 color-one" href="/part1">PART 1 CHECK VISITS</a>
+                <a class="pad-4 color-one" href="/part2">PART 2 SLIDE SHOW</a>
+                <a class="pad-4 color-one" href="/part3">PART 3 COMPUTER STORE</a>
+                <a class="pad-4 color-one" href="/part4">PART 4 COMPUTER STORE</a>
+            </div>
+        </div>
+        <div class="flex w-100 jc-center">
+            <div class="w-50 pad-2 ">
+                <h2 class="pad-h-5">Sign up</h2>
+                <form method="post">
+                    {% csrf_token %}
+                    {{form.as_p}}
+                    <button class="btn btn-primary" type="submit" value='/Login'>Sign IN</button>
+                <!-- <form class=" pad-1" action="" method="post">
+                     {% csrf_token %}
+                    
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="inputGroup-sizing-default">First Name</span>
+                        <input name="f_name" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="inputGroup-sizing-default">Last Name</span>
+                        <input name="l_name" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="inputGroup-sizing-default">email</span>
+                        <input name="email" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="inputGroup-sizing-default">username</span>
+                        <input name="username" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="inputGroup-sizing-default">password</span>
+                        <input name="password" type="password" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
+                    </div>
+
+                    <button class="btn btn-primary" type="submit">sign up</button>
+                </form> -->
+            </div>
+        </div>
+        
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="/static/js/navbar.js"></script>
+    </body>
+</html>
