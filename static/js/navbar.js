@@ -1,4 +1,6 @@
-window.load= function(){
+window.addEventListener('load',function(){
+
+    console.log('yes')
     document.getElementById("side-nav").style.display='none'
     let toggle=false
     document.getElementById("bar").addEventListener('click',function(){
@@ -11,7 +13,7 @@ window.load= function(){
         toggle=true
         
     })
-}
+})
 
 // $(document).ready(function(){
 //     $("#side-nav").hide()
