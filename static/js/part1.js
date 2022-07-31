@@ -1,8 +1,8 @@
-window.onload =function(){
-    trackVisits()
-    getIp()
+window.addEventListener('load',function(){
+    trackClientVisits()
+    getClientIp()
     getTimezone()
-}
+})
 
 
 function setCookie(cname, cvalue, exdays) {
@@ -28,21 +28,21 @@ function getCookie(cname) {
 }
 
 
-function trackVisits () {
-    const cookie_counter = getCookie('counter')
+function trackClientVisits () {
+    const counter = getCookie('counter')
 
-    if (cookie_counter) {
-        const numVisits = parseInt(cookie_counter) + 1
+    if (counter) {
+        const visits = parseInt(counter) + 1
 
-        document.getElementById('counter').innerText = numVisits
-        setCookie('counter', numVisits, 30)  //cookies are set for 30 days
+        document.getElementById('counter').innerText = visits
+        setCookie('counter', visits, 30)  //cookies are set for 30 days
     } else {
         setCookie('counter', 0, 30)
     }
 }
 
 
-function getIp () {
+function getClientIp () {
 
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
