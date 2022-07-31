@@ -130,12 +130,37 @@ window.addEventListener('load',function(){
             'ram' : document.getElementById("ramText").innerText,
             'display' : document.getElementById("monitorText").innerText,
             'hardDisk' : document.getElementById("hardDiskText").innerText,
-            'soundText' : document.getElementById("soundText").innerText,
+            'sound' : document.getElementById("soundText").innerText,
             'price' : document.getElementById("price").innerText
         }
         cart.push(computer)
         localStorage.setItem('cart',JSON.stringify(cart))
         console.log(cart)
+        setCart()
+    })
+    document.getElementById("buyNow").addEventListener('click',function(){
+        let cart
+        if(window.localStorage.cart){
+             cart = JSON.parse(localStorage.getItem('cart'))
+            
+        }
+        else{
+            cart =[]
+        }
+        var name = document.getElementById("name").innerText
+        let computer = {
+            'name' : name,
+            'cpu' : document.getElementById("cpuText").innerText,
+            'ram' : document.getElementById("ramText").innerText,
+            'display' : document.getElementById("monitorText").innerText,
+            'hardDisk' : document.getElementById("hardDiskText").innerText,
+            'sound' : document.getElementById("soundText").innerText,
+            'price' : document.getElementById("price").innerText
+        }
+        cart.push(computer)
+        localStorage.setItem('cart',JSON.stringify(cart))
+        console.log(cart)
+        location.href = '/part3/cart'
         setCart()
     })
     setCart()

@@ -21,11 +21,4 @@ def pcFour(req):
 
 @csrf_exempt
 def cart(req):
-    if req.method == 'POST':
-        data= req.POST.items()
-        data=dict(data)
-        req.session['carts'] =[data]
-        return JsonResponse({'status':True})
-    carts = req.session['carts']
-    print(carts)
-    return render(req,'part3/cart.html',{'carts':carts})
+    return render(req,'part3/cart.html')
