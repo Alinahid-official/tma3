@@ -9,4 +9,7 @@ urlpatterns = [
     path('', views.index),
     path('pc_one/', views.pcOne),
     path('cart/', views.cart),
+    path('pc_two/', views.pcTwo),
+    path('pc_three/', views.pcThree),
+    path('pc_four/', views.pcFour)
 ]

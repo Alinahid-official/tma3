@@ -1,4 +1,10 @@
-// set a cookie
+window.onload =function(){
+    trackVisits()
+    getIp()
+    getTimezone()
+}
+
+
 function setCookie(cname, cvalue, exdays) {
     const d = new Date()
     d.setTime(d.getTime() + (exdays*24*60*60*1000))
@@ -6,7 +12,6 @@ function setCookie(cname, cvalue, exdays) {
     document.cookie = cname + '=' + cvalue + ';' + expires + ';path=/'
 }
 
-// retrieve a cookie
 function getCookie(cname) {
     let name = cname + '='
     let decodedCookie = decodeURIComponent(document.cookie)
@@ -22,7 +27,7 @@ function getCookie(cname) {
     }
 }
 
-//use counter cookie to track number of times visited
+
 function trackVisits () {
     const cookie_counter = getCookie('counter')
 
@@ -36,11 +41,19 @@ function trackVisits () {
     }
 }
 
-// get the ip address of the request
+
 function getIp () {
-    $.getJSON('https://api.ipify.org?format=jsonp&callback=?', function(data) {
-        document.getElementById('ip').innerText = JSON.parse(JSON.stringify(data, null, 2))['ip'];
-    });
+
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+        var res = this.responseText
+        res = res.substring(2,res.length-2)
+        document.getElementById('ip').innerText = JSON.parse(res).ip
+        }
+    };
+        xhttp.open("GET", "https://api.ipify.org?format=jsonp&callback=?", true);
+        xhttp.send();
 }
 
 // get the timezone
@@ -50,12 +63,5 @@ function getTimezone () {
     document.getElementById('timezone').innerText = timeZone
 }
 
-function start() {
-    trackVisits()
-    getIp()
-    getTimezone()
-}
-
-window.addEventListener("load", start, false);
 
 

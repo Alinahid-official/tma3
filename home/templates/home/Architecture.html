@@ -1,110 +1,87 @@
-{% load static %}
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <meta http-equiv="Cache-control" content="no-cache">
+        <title>TMA3</title>
 
-<head>
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <meta http-equiv="Cache-control" content="no-cache">
-    {% comment %} <script type="text/javascript" src={% static 'home/homeScript.js' %}></script> {% endcomment %}
-    <title>Harshit Venket Subramanian Assignment 3 HomePage</title>
-
-    <!-- Additional CSS Files -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/v4-shims.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="/static/css/style.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-    {% comment %} <link rel="stylesheet" href="{% static 'style.css' %}"> {% endcomment %}
-
-</head>
-
-<body>
-
-    <!-- Wrapper -->
-    <div id="wrapper">
-
-        <!-- Main -->
-        <div id="main">
-            <div class="main2_center">
-
-                <!-- Header -->
-                <div class="nav-top flex jc-center bg-five">
-                    <div class=" pad-1" id="bar"><i class="fas fa-bars color-one w-100"></i></div>
-                    <a class="pad-1 color-one" href="/documentation/architecture">Architecture</a>
-                    <a class="pad-1 color-one" href="/documentation/part1doc">PART1 DOC</a>
-                    <a class="pad-1 color-one" href="/documentation/part2doc">PART2 DOC</a>
-                    <a class="pad-1 color-one" href="/documentation/part3doc">PART3 DOC</a>
-                    <a class="pad-1 color-one" href="/documentation/part4doc">PART4 DOC</a>
-                </div>
-                <div id="side-nav" class="nav-home bg-five flex jc-center">
-                    <a class="pad-4 color-one" href="/documentation">Documentation</a>
-                    <a class="pad-4 color-one" href="/part1">PART 1 CHECK VISITS</a>
-                    <a class="pad-4 color-one" href="/part2">PART 2 SLIDE SHOW</a>
-                    <a class="pad-4 color-one" href="/part3">PART 3 COMPUTER STORE</a>
-                    <a class="pad-4 color-one" href="/part4">PART 4 COMPUTER STORE</a>
-                </div>
-
-                <!-- Banner -->
-                <section class="main2-banner-container pad-4 " id="Main2-container">
-                    <!--It is here where the content presented can be updated from main2.js-->
-                    <div class="main2-banner-title">Architecture</div>
-                    <div id="main2-banner-content">
-                        <img src="/static/img/highLevel.png" class="main2-banner-content-image-centered">
-                        <p class="main2-banner-content-text-centered">The image above shows a high level overview for the Architecture of the assignment. 
-                            As the image shows, the assignment is run on a Django Web Framework.
-                            Essentially, the entire website is being run on a live VM hosted by digital ocean. On the VM itself, there are several services installed,
-                            including Django, NGINX, as well as SqlLite. 
-                            I chose chose Django and this architecture because Django is a very relevant webframework in todays world, and digital ocean droplets are free for smallscale project such as this one. 
-                            I was told in the COMP 466 discussion
-                            forums Django was an acceptable framework for this assignment, and I had a lot of fun learning it</p>
-                            <p class="main2-banner-content-text-centered">
-                            Starting from the left side of the diagram, the client (you) will connect to the web server via http through the ip address of the server. 
-                            All the user needs to do is enter the URL http://143.198.71.129:8000/ in their webrowser in order to access this web application. The entire 
-                            application is being run on port 8000. This webserver is used for various other projects of mine, so you must specify the port in the url when you first connect.
-                            Note, all browser testing for this assignment was done using google chrome and firefox. I have not tested compatability on other browsers. 
-                            I did not want to set a domain name for this website being that it is a smallscale website used only for the purposes for this course, so for now please connect using IP. </p>
-                        
-                            <p class="main2-banner-content-text-centered">This entire assignment, is one Django project, and 5 Django apps. This single Django project will contain apps for each part of this 
-                                assignment. There is the documentation/homepage app, the checkVisit app, the slideShow app, the part3 app, and part4 app. The project submission folder that was submitted 
-                            to myAU contains the project root folder SimpleDev, which is the name of this project. Inside this root folder, there is a folder for each app, a SimpleDev project settings folder, and the
-                            database for this assignment. By default, Django uses SQLite for its DB. Every Django project when created comes with a default db. I chose to stick with this db rather then migrate to
-                            a larger db platform such as MySql because this project is relatively small scale, and has no need to use a different db platform. The db is used primarily for part 4 when it is required.
-                            In order to follow Djangos reccomended project structure, I unfortunately had to disregard the file structure that was required for this assignment, so that is why you will see
-                            a different file structure in the submission for this assignment then what is required.
-                         </p>
-
-                         <p class="main2-banner-content-text-centered">
-                            Each app folder (home, checkVisit, slideShow, part3, and part4) contains folders related to each app. When you the client wishes to connect to an app, 
-                            Django will look insde the related app folder to fetch the relevant files required to run the app. Every app folder has a static folder, where static files such as scripts and images
-                            are located,a template folder where all the html files for an app are located, a urls.py file where all the urls relevant to the app are contained, and a views folder which tell
-                            Django what to do when the you the client sends a url to the server. For instance, if I enter the url http://143.198.71.129:8000/part4/, django will recieve the get request and look
-                            in the urls.py file inside the part4 app folder. From there it will look for instructions what to do with that URL. In this case, Django will run the index view, which from there 
-                            will render the part 4 index html file. 
-                         </p>
-
-                         <p class="main2-banner-content-text-centered">All apps for this project follow this formula. Find the url in the urls.py file, then run the corresponding view in the views.py file
-                             to then allow Django to decide what to do. Communication between the client and the web server is all done mostly using javascript and running get requests. All apps will also contain
-                             a very similar UI. A navigation bar on top, the content displayed in the middle, and a sidebar to the left. The sidebar is made visible by clicking the SIMPLEDEV logo on the 
-                             top left of the navigation. It is here that you the client can connect to any app in this assignment you wish. 
-                         </p>
-                    <!--End of content update-->
-                </section>
-
-                <div class="main2-banner-content-page-navigation" id="Main2-Page-Navigation">
-                </div>
-
-
-            </div>
-        </div>
-
-        <!-- Sidebar -->
         
-    </div>
-    <script type="text/javascript" src="/static/js/navbar.js"></script>
-</body>
+
+    </head>
+    <body>
+        <div>
+            <div>
+                <div>
+                    <div class="nav-top flex jc-center bg-five">
+                        <div class=" pad-1" id="bar"><i class="fas fa-bars color-one w-100"></i></div>
+                        <a class="pad-1 color-one" href="/documentation/architecture">Architecture</a>
+                        <a class="pad-1 color-one" href="/documentation/part1doc">PART1 DOC</a>
+                        <a class="pad-1 color-one" href="/documentation/part2doc">PART2 DOC</a>
+                        <a class="pad-1 color-one" href="/documentation/part3doc">PART3 DOC</a>
+                        <a class="pad-1 color-one" href="/documentation/part4doc">PART4 DOC</a>
+                    </div>
+                    <div id="side-nav" class="nav-home bg-five flex jc-center">
+                        <a class="pad-4 color-one" href="/documentation">Documentation</a>
+                        <a class="pad-4 color-one" href="/part1">CHECK VISITS</a>
+                        <a class="pad-4 color-one" href="/part2">SLIDE SHOW</a>
+                        <a class="pad-4 color-one" href="/part3">COMPUTER STORE(STATIC)</a>
+                        <a class="pad-4 color-one" href="/part4">COMPUTER STORE(DYANAMIC)</a>
+                    </div>
+                    <div>
+                        <div class="flex jc-center">Architecture</div>
+                        <div style="flex-direction: column;" class="pad-2 flex jc-center">
+                            <img class="" height="500px" width="500px" src="/static/img/Architecture.jpeg" >
+                            <p >The image above shows a high level overview for the Architecture of the assignment. 
+                                As the image shows, the assignment is run on a Django Web Framework.
+                                Essentially, the entire website is being run on a live . On the VM itself, there are several services installed,
+                                including Django, NGINX, gunicorn as well as SqlLite. 
+                                I chose chose Django and this architecture because Django is a very relevant webframework in todays world, and some aws instances are free for smallscale project such as this one. 
+                                I was told in the COMP 466 discussion
+                                forums Django was an acceptable framework for this assignment, and I had a lot of fun learning it</p>
+                                <p>
+                                Starting from the left side of the diagram, the client (you) will connect to the web server via http through the ip address of the server. 
+                                All the user needs to do is enter the URL http://3.86.255.16/ in their webrowser in order to access this web application. The entire 
+                                application is being run on port 8000. This webserver is used for various other projects of mine, so you must specify the port in the url when you first connect.
+                                Note, all browser testing for this assignment was done using google chrome . I have not tested compatability on other browsers. 
+                                I did not want to set a domain name for this website being that it is a smallscale website used only for the purposes for this course, so for now please connect using IP. </p>
+                            
+                                <p >This entire assignment, is one Django project, and 5 Django apps. This single Django project will contain apps for each part of this 
+                                    assignment. There is the documentation/homepage app, the checkVisit app, the slideShow app, the part3 app, and part4 app. The project submission folder that was submitted 
+                                to myAU contains the project root folder SimpleDev, which is the name of this project. Inside this root folder, there is a folder for each app, a SimpleDev project settings folder, and the
+                                database for this assignment. By default, Django uses SQLite for its DB. Every Django project when created comes with a default db. I chose to stick with this db rather then migrate to
+                                a larger db platform such as MySql because this project is relatively small scale, and has no need to use a different db platform. The db is used primarily for part 4 when it is required.
+                                In order to follow Djangos reccomended project structure, I unfortunately had to disregard the file structure that was required for this assignment, so that is why you will see
+                                a different file structure in the submission for this assignment then what is required.
+                            </p>
+
+                            <p >
+                                Each app folder (home, checkVisit, slideShow, part3, and part4) contains folders related to each app. When you the client wishes to connect to an app, 
+                                Django will look insde the related app folder to fetch the relevant files required to run the app. Every app folder has a static folder, where static files such as scripts and images
+                                are located,a template folder where all the html files for an app are located, a urls.py file where all the urls relevant to the app are contained, and a views folder which tell
+                                Django what to do when the you the client sends a url to the server. For instance, if I enter the url http://143.198.71.129:8000/part4/, django will recieve the get request and look
+                                in the urls.py file inside the part4 app folder. From there it will look for instructions what to do with that URL. In this case, Django will run the index view, which from there 
+                                will render the part 4 index html file. 
+                            </p>
+
+                            <p >All apps for this project follow this formula. Find the url in the urls.py file, then run the corresponding view in the views.py file
+                                to then allow Django to decide what to do. Communication between the client and the web server is all done mostly using javascript and running get requests. All apps will also contain
+                                a very similar UI. A navigation bar on top, the content displayed in the middle, and a sidebar to the left. The sidebar is made visible by clicking the SIMPLEDEV logo on the 
+                                top left of the navigation. It is here that you the client can connect to any app in this assignment you wish. 
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>    
+        </div>
+        <script type="text/javascript" src="/static/js/navbar.js"></script>
+    </body>
 
 </html>
