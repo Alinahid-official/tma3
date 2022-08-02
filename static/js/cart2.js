@@ -14,10 +14,11 @@ window.addEventListener('load',function(){
                 data :{id :id},
                 success: function(data){
                     console.log(data)
+                    
                 }
-            })
+            }).then(location.reload())
             
-            location.reload()
+            
         });
     }
     
@@ -32,5 +33,5 @@ function setTotal(){
         console.log('price',price[i])
         total+=parseInt(price)
     }
-    document.getElementById("total").innerText=total 
+    document.getElementById("total").innerText=`&#36 ${total} `
 }

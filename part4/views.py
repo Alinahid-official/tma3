@@ -88,5 +88,17 @@ def removeCartItem(req):
         data =dict(data)
         print(data)
         id=data['id']
+        # cart = Cart.objects.filter(id=id)
+        # print(cart[0].computer)
+        # computerId = cart[0].computer.id 
+        # if (cart[0].computer.custom):
+        #     Computer.objects.filter(id=computerId).delete()
         Cart.objects.filter(id=id).delete()
+        return JsonResponse({'status':'ok'})
     return JsonResponse({'status':'ok'})
+
+def feedback(req):
+    return render(req,'part4/feedback.html')
+
+def contact(req):
+    return render(req,'part4/contact.html')

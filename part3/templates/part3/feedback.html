@@ -31,14 +31,27 @@
                 <a class="pad-4 color-one" href="/part4">COMPUTER STORE(DYANAMIC)</a>
             </div>
         </div>
-        <div id="cartItems" class="flex align-center jc-center column">
+            <div class="form w-50 pad-5">
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">email</span>
+                    <input type="text" class="form-control" placeholder="email" aria-label="Username" aria-describedby="basic-addon1">
+                </div>
+                <div class="input-group">
+                    <span class="input-group-text">feed back</span>
+                    <textarea class="form-control" aria-label="With textarea"></textarea>
+                    
+                </div>
+                <button id="submit" type="button" class="btn btn-primary mt-2">Submit</button>
+            </div>
             
         </div>
-        <hr>
-        <div class="flex jc-center"><div>Total <span id="total"></span></div></div>
-        <div class="flex jc-center"><button>check Out</button></div>
-    
+       
+    <script>
+        document.getElementById('submit').addEventListener('click',function(){
+            location.href='/part3'
+        })
+    </script>
     <script type="text/javascript" src="/static/js/navbar.js"></script>
-    <script type="text/javascript" src="/static/js/cart.js"></script>
+    
     </body>
 </html>

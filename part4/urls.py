@@ -15,4 +15,6 @@ urlpatterns = [
     path('removeCartItem/', views.removeCartItem),
     path('logout/', views.logout),
     path('login/', auth_views.LoginView.as_view()),
+    path('contact/', views.contact),
+    path('feedback/', views.feedback),
 ]

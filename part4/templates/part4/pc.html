@@ -20,6 +20,7 @@
         <div>
             <div class="nav-top-blue flex jc-center bg-six">
               <div class=" pad-1" id="bar"><i class="fas fa-bars color-one w-100"></i></div>
+              <div class="fw-bold font-150" id="logo">PC Builder</div>
               <a class="pad-1 color-one" href="/part4">Home</a>
                 {% if request.user.is_authenticated %}
                 <a id='user' class="pad-1 color-one" href="#">{{request.user}}</a>
@@ -29,7 +30,8 @@
                 <a class="pad-1 color-one" href="/part4/login">login</a>
                 <a class="pad-1 color-one" href="/part4/signup">register</a>
                 {% endif %}
-                    
+                <a class="pad-1 color-one" href="/part4/feedback">feedback</a>
+                <a class="pad-1 color-one" href="/part4/feedback">contact us</a>
             </div>
             <div id="side-nav" class="nav-home bg-five flex jc-center">
                 <a class="pad-4 color-one" href="/documentation">Documentation</a>
@@ -44,7 +46,7 @@
             <div class="list-container hide" id="cpuList">
                 {% for cpu in cpus %}
                 <div >
-                    <div class="text">{{cpu.name}}
+                    <div class="text">{{cpu.name}} &#36 {{cpu.price}}
                         <input class="price hide" value="{{cpu.price}}" type="text">
                         <input class="id hide" value="{{cpu.id}}" type="text">
                     </div>
@@ -55,7 +57,7 @@
             <div class="list-container hide" id="ramList">
                 {% for ram in rams %}
                 <div >
-                    <div class="text">{{ram.name}}
+                    <div class="text">{{ram.name}} &#36 {{ram.price}}
                         <input class="price hide" value="{{ram.price}}" type="text">
                         <input class="id hide" value="{{ram.id}}" type="text">
                     </div>
@@ -66,7 +68,7 @@
             <div class="list-container hide" id="displayList">
                 {% for display in displays %}
                 <div >
-                    <div class="text">{{display.name}}
+                    <div class="text">{{display.name}} &#36 {{display.price}}
                         <input class="price hide" value="{{display.price}}" type="text">
                         <input class="id hide" value="{{display.id}}" type="text">
                     </div>
@@ -77,7 +79,7 @@
             <div class="list-container hide" id="hardDiskList">
                 {% for hardDisk in hardDisks %}
                 <div >
-                    <div class="text">{{hardDisk.name}}
+                    <div class="text">{{hardDisk.name}} &#36 {{hardDisk.price}}
                         <input class="price hide" value="{{hardDisk.price}}" type="text">
                         <input class="id hide" value="{{hardDisk.id}}" type="text">
                     </div>
@@ -88,7 +90,7 @@
             <div class="list-container hide" id="soundList">
                 {% for sound in sounds %}
                 <div >
-                    <div class="text">{{sound.name}}
+                    <div class="text">{{sound.name}} &#36 {{sound.price}}
                         <input class="price hide" value="{{sound.price}}" type="text">
                         <input class="id hide" value="{{sound.id}}" type="text">
                     </div>
@@ -109,9 +111,9 @@
                     </div>
                 </div>
                 <div class="col-8">
-                    <div class="w-100 border">
-                        <div id="name">Power Pc 1</div>
-                        <div class="font-150 fw-bold"><span>&#8377</span><span id="price"></span></div>
+                    <div class="w-100 pad-4 border">
+                        <div class="font-150 fw-bold" id="name">Power Pc 1</div>
+                        <div class="font-150 fw-bold"><span>&#36</span><span id="price"></span></div>
                         <div class="w-100 pad-2 border-b">
                             <h3>Specification</h3>
                             {% comment %} <input class="hide" id='name' value="{{computer.name}}" type="text"> {% endcomment %}
@@ -125,7 +127,7 @@
                                         <img src="/static/img/cpu-2.png" alt="" srcset="">
                                         <input class="hide" id="cpuId" value="{{computer.cpu.id}}"/> 
                                         <input class="hide" id="cpu" value="{{computer.cpu.price}}"/> 
-                                        <span id="cpuText">{{computer.cpu.name}}</span>
+                                        <span id="cpuText">{{computer.cpu.name}} &#36 {{computer.cpu.price}}</span>
                                     </div>
                                     <div ><button id="changeCpu" class="mt-1 bg-four color-one" type="button">Change</button></div>
                                 </div>
@@ -134,7 +136,7 @@
                                         <img src="/static/img/ram-2.png" alt="" srcset="">
                                         <input class="hide" id="ramId" value="{{computer.ram.id}}"/> 
                                         <input class="hide" id="ram" value="{{computer.ram.price}}"/> 
-                                        <span id="ramText">{{computer.ram.name}}</span>
+                                        <span id="ramText">{{computer.ram.name}} &#36 {{computer.ram.price}}</span>
                                     </div>
                                     <button id="changeRam" class="mt-1 bg-four color-one">Change</button>
                                 </div>
@@ -143,7 +145,7 @@
                                         <img src="/static/img/monitor-2.png" alt="" srcset="">
                                         <input class="hide" id="monitor" value="{{computer.display.price}}"/>
                                         <input class="hide" id="monitorId" value="{{computer.display.id}}"/>
-                                        <span id="monitorText">{{computer.display.name}}</span>
+                                        <span id="monitorText">{{computer.display.name}} &#36 {{computer.display.price}}</span>
                                      </div>
                                     <button id="changeMonitor" class="mt-1 bg-four color-one">Change</button>
                                 </div>
@@ -152,7 +154,7 @@
                                         <img src="/static/img/hard-disk-2.png" alt="" srcset="">
                                         <input class="hide" id="hardDisk" value="{{computer.hardDisk.price}}"/>
                                         <input class="hide" id="hardDiskId" value="{{computer.hardDisk.id}}"/>
-                                        <span id="hardDiskText">{{computer.hardDisk.name}}</span> 
+                                        <span id="hardDiskText">{{computer.hardDisk.name}} &#36 {{computer.hardDisk.price}}</span> 
                                     </div>
                                     <button id="changeHardDisk" class="mt-1 bg-four color-one">Change</button>
                                 </div>
@@ -161,7 +163,7 @@
                                         <img src="/static/img/sound-2.png" alt="" srcset="">
                                         <input class="hide" id="sound" value="{{computer.sound.price}}"/>
                                         <input class="hide" id="soundId" value="{{computer.sound.id}}"/>
-                                        <span id="soundText">{{computer.sound.name}}</span> 
+                                        <span id="soundText">{{computer.sound.name}} &#36 {{computer.sound.price}}</span> 
                                     </div>
                                     <button id="changeSound" class="mt-1 bg-four color-one">Change</button>
                                 </div>

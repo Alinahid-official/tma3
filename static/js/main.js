@@ -3,7 +3,9 @@ window.addEventListener('load',function(){
     setCart()
     document.getElementById("addToCart").addEventListener('click',function(){
         addToCart()
-        location.reload()
+    })
+    document.getElementById("buyNow").addEventListener('click',function(){
+        buyNow()
     })
     document.getElementById("changeCpu").addEventListener('click',function(){
         document.getElementById("blur").style.display='block'
@@ -154,8 +156,8 @@ function addToCart(){
     var price = document.getElementById("price").innerText
     console.log(name,cpu,ram,monitor,hard_disk,sound,price)
     var user =document.getElementById('user')
-    // console.log(user)
-    if(!user){
+    console.log(user)
+    if(user == 'AnonymousUser' || !user){
         location.href='/part4/login'
         return
     }
@@ -173,11 +175,48 @@ function addToCart(){
             },
         success: function(data){
             console.log(data)
-            // location.reload
+            location.reload()
         }
     })
     
 }
+
+function buyNow(){
+    var name = document.getElementById("name").innerText
+    var cpu = document.getElementById("cpuId").value
+    var ram = document.getElementById("ramId").value
+    var monitor = document.getElementById("monitorId").value
+    var hard_disk = document.getElementById("hardDiskId").value
+    var sound = document.getElementById("soundId").value
+    var price = document.getElementById("price").innerText
+    console.log(name,cpu,ram,monitor,hard_disk,sound,price)
+    var user =document.getElementById('user')
+    console.log(user)
+    if(user == 'AnonymousUser' || !user){
+        location.href='/part4/login'
+        return
+    }
+    $.ajax({
+        url: "/part4/cart/",
+        type:"post",
+        
+        data : {cpu:cpu,
+                ram:ram,
+                monitor:monitor,
+                hard_disk:hard_disk,
+                sound:sound,
+                name : name,
+                price : price
+            },
+        success: function(data){
+            console.log(data)
+            location.href='/part4/cart'
+        }
+    })
+    
+}
+
+
 
 function setCart(){
     let length

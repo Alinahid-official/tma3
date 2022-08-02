@@ -18,8 +18,10 @@
         <div>
             <div class="nav-top-blue flex jc-center bg-six">
               <div class=" pad-1" id="bar"><i class="fas fa-bars color-one w-100"></i></div>
+              <div class="fw-bold font-150" id="logo">PC Builder</div>
               <a class="pad-1 color-one" href="/part4">Home</a>
-              
+              <a class="pad-1 color-one" href="/part4/feedback">feedback</a>
+              <a class="pad-1 color-one" href="/part4/feedback">contact us</a>
             </div>
             <div id="side-nav" class="nav-home bg-five flex jc-center">
                 <a class="pad-4 color-one" href="/documentation">Documentation</a>
@@ -37,12 +39,12 @@
             <div class="w-100 pad-2">
                 <input class="hide id" value ="{{cart.id}}"type="text">
                 <div>{{cart.computer.name}}</div>
-                <div>{{cart.computer.cpu.name}}</div>
-                <div>{{cart.computer.ram.name}}</div>
-                <div>{{cart.computer.display.name}}</div>
-                <div>{{cart.computer.hardDisk.name}}</div>
-                <div>{{cart.computer.sound.name}}</div>
-                <div class="price">{{cart.computer.price}}</div>
+                <div>{{cart.computer.cpu.name}} &#36 {{cart.computer.cpu.price}}</div>
+                <div>{{cart.computer.ram.name}} &#36 {{cart.computer.ram.price}}</div>
+                <div>{{cart.computer.display.name}} &#36 {{cart.computer.display.price}}</div>
+                <div>{{cart.computer.hardDisk.name}} &#36 {{cart.computer.hardDisk.price}}</div>
+                <div>{{cart.computer.sound.name}} &#36 {{cart.computer.sound.price}}</div>
+                <div> <span>&#36</span><span class='price'>{{cart.computer.price}}</span> </div>
                 <button class="remove">remove</button>
             </div>
             {% endfor %}

@@ -22,3 +22,9 @@ def pcFour(req):
 @csrf_exempt
 def cart(req):
     return render(req,'part3/cart.html')
+
+def feedback(req):
+    return render(req,'part3/feedback.html')
+
+def contact(req):
+    return render(req,'part3/contact.html')
