@@ -49,38 +49,30 @@
                     <a class="pad-4 color-one" href="/part4">COMPUTER STORE(DYANAMIC)</a>
                 </div>
                 <!-- Banner -->
-                <section class="main2-banner-container" id="Main2-container">
+                <section >
                     <!--It is here where the content presented can be updated from main2.js-->
-                    <div class="main2-banner-title">Part 4 Documentation</div>
-                    <div id="main2-banner-content">
-                        <img src="/static/img/part4Database.png" class="main2-banner-content-image-centered">
-                        <p class="main2-banner-content-text-centered">
-                            All the code and files used for this app are contained inside the part4 folder. To connect to this app, either press the link in the sidebar,
-                            or you can directly connect to it by entering the URL http://localhost:8000/part4/ . I chose to name this app simply part4 rather then something
-                            like computer store to avoid confusion between the part3 computer store</p>
-                        <p class="main2-banner-content-text-centered">
-                            Much of the funcitonality is the same as part3 from a user perspective, however much has changed behind the scenes. There is now an authentication system
-                            with the app. If a user tries to access this app or a page in this app without signing in, the user will automatically be redirected to the login page.
-                            At the login page, the user can either enter their credentials and log into the app, or they can choose to proceed to the create account screen,
-                            where the user will be automatically redirected to the welcome page of the app and signed in after creating an account. There is also now a logout button 
-                            at the top navigation of the app which signs the user out and redirects to the login page.
+                    <div >Part 4 Documentation</div>
+                    <div >
+                        <img src="/static/img/" >
+                        <p style="padding:0 10%; font-size:140%">
+                            Anyone can access the part using the url http://3.86.255.16/part4, the funtions are required files are under the directory 
+                            part 4. 
+                            </p>
+                        <p style="padding:0 10%; font-size:140%">
+                            The working and ui of the the part 4 is almost some with some additional services fo login signup.
+                            In this also client can select a computer and then customize it accordingly but for now to add it to the cart 
+                            client needs to login if alredy signed up else have to sign Up and then sign in. As it is dyanamic store
+                            all the information are from data base every data including computer detail, carts all are saved and 
+                            fetched from the DB SQl lite.
                         </p>
 
-                        <p class="main2-banner-content-text-centered">
-                            What has changed behind the scenes is that we are no longer using cookies and we are required to use a database to store and update all our data. In the part4 app folder,
-                            you will notice the json data has been deleted and can no longer be used in the app. Instead, we will utilize django models to create our tables in our db and store our data.
-                            All the relevant Django models used in this assignment can be viewed in the models.py file in the part4 folder. The image above shows all the models used for the app. 
-                            The Users model is already created by default as thanks to django, so all the user related data is stored in this default model. There is also a computers model, which is very
-                            similar to what was done for computers in the part3 json. There is a model for each part_name (cpu, ram, etc...), and a model for cart. 
-                        </p>
-                        <p class="main2-banner-content-text-centered">
-                            Because we are now needing to interact more with the backend, the command folder now contains many more commands, allowing the client to send more requests to the server.
-                            In the parts page of part4 we are now sending a get request which tells the server to run a query against the db to fetch all the relevant parts data, and send it back
-                            to the client in json format. In the computers section of part4, the exact same thing is done but now for computers. When a computer is added to cart, essentially now what happens
-                            is we send a request (command) to add an entry to the cart model, as shown above. This entry in the cart model contains all the info related to that computer the user has added, as well
-                            as the userID to allow the server to know which cart entry is for which user. So when the user presses the cart button in the navigation in part4, a query is run on the backend
-                            to fetch all cart entries that have the same userID as the user, and send that data to the client side to render to the browser. Upon deleting or purchasing computers, the cart entries
-                            are deleted from the model.
+                        
+                        <p style="padding:0 10%; font-size:140%">
+                            In the landing page the computer list can be increased or decreasd and configured by the admin of the store.
+                            On clicking any of the computer the detail part is opened here client can change any particular part
+                            and add it to the cart. The list of the parts are also dyanamic and are fetched from data base the store admin 
+                            can modify the part details and list. After configuration the client can add to the cart which is also stored in the 
+                            database and if in the cart section if any cart item is removed it is also updated in the database.
                         </p>
                     <!--End of content update-->
                 </section>

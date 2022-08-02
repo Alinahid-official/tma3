@@ -1,3 +1,4 @@
+import re
 from django.shortcuts import render
 from django.shortcuts import redirect
 from django.contrib.auth import logout as dj_logout
@@ -13,12 +14,15 @@ def pcOne(request,id):
     cpus = Cpu.objects.all()
     displays =Display.objects.all()
     rams =Ram.objects.all()
-    hardisks=HardDisk.objects.all()
+    hardDisks=HardDisk.objects.all()
     sounds =Sound.objects.all()
     context ={
         'computer':computer,
         'cpus':cpus,
-        'rams':rams
+        'rams':rams,
+        'displays':displays,
+        'hardDisks' : hardDisks,
+        'sounds':sounds
     }
     # components={'components':{{'computer':computer},{'cpus':cpus},{'displays':displays},{'rams':rams},{'hardisks':hardisks},{'sounds':sounds}}}
     return render(request,'part4/pc.html',context)
@@ -70,3 +74,19 @@ def cart(req):
         return JsonResponse({'status':True})
     carts = Cart.objects.filter(user=req.user)
     return render(req, 'part4/cart.html',{'carts':carts})
+
+def cartLength(req):
+    user = req.user 
+    cart = Cart.objects.filter(user = user)
+    print(len(cart))
+    return JsonResponse({'length':len(cart)})
+
+@csrf_exempt
+def removeCartItem(req):
+    if req.method == 'POST':
+        data = req.POST.items()
+        data =dict(data)
+        print(data)
+        id=data['id']
+        Cart.objects.filter(id=id).delete()
+    return JsonResponse({'status':'ok'})

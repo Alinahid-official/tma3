@@ -22,9 +22,9 @@
               <div class=" pad-1" id="bar"><i class="fas fa-bars color-one w-100"></i></div>
               <a class="pad-1 color-one" href="/part4">Home</a>
                 {% if request.user.is_authenticated %}
-                <a class="pad-1 color-one" href="#">{{request.user}}</a>
+                <a id='user' class="pad-1 color-one" href="#">{{request.user}}</a>
                 <a class="pad-1 color-one" href="/part4/logout">logout</a>
-                <a class="pad-1 color-one" href="/part4/cart">cart</a>
+                <a id="cart" class="pad-1 color-one" href="/part4/cart">cart</a>
                 {% else%}
                 <a class="pad-1 color-one" href="/part4/login">login</a>
                 <a class="pad-1 color-one" href="/part4/signup">register</a>
@@ -63,6 +63,39 @@
                 </div>
                 {% endfor %}
             </div>
+            <div class="list-container hide" id="displayList">
+                {% for display in displays %}
+                <div >
+                    <div class="text">{{display.name}}
+                        <input class="price hide" value="{{display.price}}" type="text">
+                        <input class="id hide" value="{{display.id}}" type="text">
+                    </div>
+                    <button  class="selectDisplayBtn color-one bg-two">select</button>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="list-container hide" id="hardDiskList">
+                {% for hardDisk in hardDisks %}
+                <div >
+                    <div class="text">{{hardDisk.name}}
+                        <input class="price hide" value="{{hardDisk.price}}" type="text">
+                        <input class="id hide" value="{{hardDisk.id}}" type="text">
+                    </div>
+                    <button  class="selectHardDiskBtn color-one bg-two">select</button>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="list-container hide" id="soundList">
+                {% for sound in sounds %}
+                <div >
+                    <div class="text">{{sound.name}}
+                        <input class="price hide" value="{{sound.price}}" type="text">
+                        <input class="id hide" value="{{sound.id}}" type="text">
+                    </div>
+                    <button  class="selectSoundBtn color-one bg-two">select</button>
+                </div>
+                {% endfor %}
+            </div>
         </div>
         <div class="container">
             <div class="row">
@@ -77,10 +110,11 @@
                 </div>
                 <div class="col-8">
                     <div class="w-100 border">
+                        <div id="name">Power Pc 1</div>
                         <div class="font-150 fw-bold"><span>&#8377</span><span id="price"></span></div>
                         <div class="w-100 pad-2 border-b">
                             <h3>Specification</h3>
-                            <input class="hide" id='name' value="{{computer.name}}" type="text">
+                            {% comment %} <input class="hide" id='name' value="{{computer.name}}" type="text"> {% endcomment %}
                         </div>
                         <div class="pad-2">
                             <div class="font-140">Customizable Components</div>
@@ -137,10 +171,7 @@
                 </div>
             </div>
         </div>
-        {% comment %} <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script> {% endcomment %}
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="/static/js/navbar.js"></script>
+        <script type="text/javascript" src="/static/js/navbar.js"></script>
         <script src="/static/js/main.js"></script>
     </body>
 </html>

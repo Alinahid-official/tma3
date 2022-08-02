@@ -45,42 +45,30 @@
                 </div>
 
                 
-                <section class="main2-banner-container" id="Main2-container">
+                <section>
                     <!--It is here where the content presented can be updated from main2.js-->
-                    <div class="main2-banner-title">Part 2 Documentation</div>
-                    <div id="main2-banner-content">
-                        <p class="main2-banner-content-text-centered">
-                            All the code and files used for this app are contained inside the slideShow folder. To connect to this app, either press the link in the sidebar,
-                            or you can directly connect to it by entering the URL http://ocalhost:8000/part2/</p>
-                        <p class="main2-banner-content-text-centered">
-                                Upon connecting to this app, the main2.js script is run (located in the static folder). In this app, there are 20 images located within the 
-                                static folder. The goal is to fetch these images from the server and render them in a slide show on the client side. To achieve this,
-                                we will use blob fetch to get the image data. In main2.js, we first fetch the relevant json data for the images. In the slideShow app folder
-                                there is a json file called Image_data. Each entry in this json file contains a caption and a imageURL for each of the images. So, on the client
-                                end we first send a get request to the server. This get request has a very special URL in that it is a commmand URL. Within the slideShow app folder,
-                                I have created a folder called command. This command folder contains special URLs that the client can run in order to perform certain command. In our
-                                case, we will run GET /slideshow/command/getJson/. When this get request is sent, Django will look in the command URL file to look for the corresponding
-                                command. It then runs the getJson function in the views. This function will read the json data stored on the server, and send it back to the client
-                                in JSON format. With this JSON data, the client now has the caption data and image url data for each of the images.
+                    <div >Part 2 Documentation</div>
+                    <div >
+                        <p style="padding:0 10%; font-size:140%">
+                            The url used to acess the page is http://3.86.255.16/part2. The app name also part2 and the folder part 2
+                            contains all the necessaary files needed for the app to run
+                            </p>
+                        <p style="padding:0 10%; font-size:140%">
+                            On Conneting this app we can see one picture in the center with a caption under the picture. And below that there few buttons like 
+                            sequential, previous, play , next, pause, forward, backward. As per the requirement this a slideshow where we have two types of slide shows 
+                            one having random order and another having sequential. Sequential order can be played backward and forward as well with manual previous
+                            and next buttons on the  other hand random only can be played and paused
                         </p>
 
-                        <p class="main2-banner-content-text-centered">
-                            When you first connect to the slideshow app, it might take around 20-30 seconds to preload all the images. Once all the images are loaded, the buttons will load at the bottom navigation.
-                            To start the slideshow, select the sequence order which is located above the canvas, and then press the start button in the bottom button navigation.
-                            The images for the slideshow are obtained in a similar fashion to how the json data was obtained. The client runs a command GET request, and the server returns
-                            the client the image in blob format.
+                        <p style="padding:0 10%; font-size:140%">
+                            when you connect the app it load the data from the django default data base with picturs and captions. Then it loads script
+                            from part2.js in which every function is writeen to randomize the order including changing the direction and also other functionalities
+                            required for the slide show
                         </p>
                     <!--End of content update-->
                 </section>
-
-                <div class="main2-banner-content-page-navigation" id="Main2-Page-Navigation">
-                </div>
-
-
             </div>
         </div>
-
-        <!-- Sidebar -->
         
     </div>
     <script type="text/javascript" src="/static/js/navbar.js"></script>

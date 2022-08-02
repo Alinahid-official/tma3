@@ -7,10 +7,8 @@ window.addEventListener('load', function(){
             e.preventDefault()
             var ele = e.target;
             var parent = ele.parentElement
-            var index = parent.getElementsByClassName('index')[0].value
-            var cart = JSON.parse(window.localStorage.getItem('cart'))
-            cart.splice(index,1)
-            window.localStorage.setItem('cart',JSON.stringify(cart))
+            var index = parent.getElementsByClassName('id')[0].value
+            
             location.reload()
         });
     }

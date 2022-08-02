@@ -184,6 +184,5 @@ function setPrice(){
     var sound=document.getElementById("sound").value
     var total= parseInt(cpu)+parseInt(ram)+parseInt(monitor)+parseInt(hard_disk)+parseInt(sound)
     document.getElementById("price").innerText=total
-    // $("#price").text(total)
 }
 

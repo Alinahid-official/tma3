@@ -11,6 +11,8 @@ urlpatterns = [
     path('pc_one/<int:id>', views.pcOne),
     path('signup/', views.signUp),
     path('cart/', views.cart),
+    path('cartLength/', views.cartLength),
+    path('removeCartItem/', views.removeCartItem),
     path('logout/', views.logout),
     path('login/', auth_views.LoginView.as_view()),
 ]
