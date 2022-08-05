@@ -17,4 +17,7 @@ urlpatterns = [
     path('login/', auth_views.LoginView.as_view()),
     path('contact/', views.contact),
     path('feedback/', views.feedback),
+    path('success/', views.sucess),
+    path('greeting/', views.greeting),
+    path('forgot/', views.forgot),
 ]

@@ -51,5 +51,5 @@ function cartView(){
                 </div>`
     }
     document.getElementById("cartItems").innerHTML=html
-    document.getElementById("total").innerHTML=`&#36 ${total}`
+    document.getElementById("total").innerHTML=`${total}`
 }

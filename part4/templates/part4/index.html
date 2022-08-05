@@ -14,6 +14,7 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="/static/css/style.css">
         <link rel="icon" href="images/favicon.png" type="image/gif">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     </head>
     <body>
       <div>
@@ -23,16 +24,16 @@
           <a class="pad-1 color-one" href="/part4">Home</a>
           
           {% if request.user.is_authenticated %}
-          <a class="pad-1 color-one" href="#">{{request.user}}</a>
-          <a class="pad-1 color-one" href="/part4/logout">logout</a>
-          <a class="pad-1 color-one" href="/part4/cart">cart</a>
+          <div class="pad-1 color-one" id="user">{{request.user}}</div>
+          <a class="pad-1 color-one" id="logout" href="/part4/logout">logout</a>
+          <a class="pad-1 color-one" id="cart" href="/part4/cart">view cart</a>
           
           {% else%}
           <a class="pad-1 color-one" href="/part4/login">login</a>
           <a class="pad-1 color-one" href="/part4/signup">register</a>
           {% endif %}
           <a class="pad-1 color-one" href="/part4/feedback">feedback</a>
-          <a class="pad-1 color-one" href="/part4/feedback">contact us</a>
+          <a class="pad-1 color-one" href="/part4/contact">contact us</a>
         </div>
         <div id="side-nav" class="nav-home bg-five flex jc-center">
             <a class="pad-4 color-one" href="/documentation">Documentation</a>
@@ -91,7 +92,30 @@
             {% endfor %}
             </div>
         </div>
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script>
+          setCart()
+          function setCart(){
+            let length
+            var cart =$("#cart")
+            console.log(cart)
+            $.ajax({
+                url: "/part4/cartLength/",
+                type:"get",
+                success: function(data){
+                    console.log(data.length)
+                    length=data.length
+                    var cart = document.getElementById("cart")
+                    if(cart){
+                        cart.innerText=`cart(${length})`
+                        return
+                    }
+        
+                }
+            })
+            
+        }
+        </script>
+        
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
         <script type="text/javascript" src="/static/js/navbar.js"></script>

@@ -33,5 +33,5 @@ function setTotal(){
         console.log('price',price[i])
         total+=parseInt(price)
     }
-    document.getElementById("total").innerText=`&#36 ${total} `
+    document.getElementById("total").innerText=`${total} `
 }

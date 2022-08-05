@@ -3,6 +3,7 @@ from django.shortcuts import render
 from django.shortcuts import redirect
 from django.contrib.auth import logout as dj_logout
 from .models import Cpu,Ram, Display, HardDisk,Sound, Computer, Cart
+from django.contrib.auth.models import User
 from .forms import SignUpForm
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.decorators import login_required
@@ -24,13 +25,12 @@ def pcOne(request,id):
         'hardDisks' : hardDisks,
         'sounds':sounds
     }
-    # components={'components':{{'computer':computer},{'cpus':cpus},{'displays':displays},{'rams':rams},{'hardisks':hardisks},{'sounds':sounds}}}
     return render(request,'part4/pc.html',context)
 
 def index(request):
 
     computers = Computer.objects.filter(custom=False)
-    print(request.user)
+    
     return render(request,'part4/index.html',{'computers':computers})
 
 def logout(request):
@@ -42,18 +42,12 @@ def signUp(request):
         form = SignUpForm(request.POST)
         if form.is_valid():
             form.save()
-            # username = form.cleaned_data.get('username')
-            # raw_password = form.cleaned_data.get('password1')
-            # user = authenticate(username=username, password=raw_password)
-            # login(request, user)
-            # return redirect('home')
-        return redirect('/part4/login')
+        return redirect('/part4/success')
     else:
         form = SignUpForm()
     return render(request, 'part4/signup.html', {'form': form})
 
 @csrf_exempt
-# @login_required(login_url='/login1')
 def cart(req):
     if req.method == 'POST':
         data = req.POST.items()
@@ -88,11 +82,6 @@ def removeCartItem(req):
         data =dict(data)
         print(data)
         id=data['id']
-        # cart = Cart.objects.filter(id=id)
-        # print(cart[0].computer)
-        # computerId = cart[0].computer.id 
-        # if (cart[0].computer.custom):
-        #     Computer.objects.filter(id=computerId).delete()
         Cart.objects.filter(id=id).delete()
         return JsonResponse({'status':'ok'})
     return JsonResponse({'status':'ok'})
@@ -102,3 +91,37 @@ def feedback(req):
 
 def contact(req):
     return render(req,'part4/contact.html')
+
+def sucess(req):
+    return render(req,'part4/successSignUp.html')
+
+def greeting(req):
+    return render(req,'part4/greeting.html')
+
+def forgot(req):
+    if req.method == 'POST':
+        data= req.POST.items()
+        data= dict(data)
+        
+        try:
+            password = data['password']
+            user = User.objects.get(username = data['username'])
+            print(user)
+            user.set_password(password)
+            user.save()
+            return render(req,'part4/forgot.html',{'reset':True})
+        except:
+            try:
+                user = User.objects.get(username = data['username'])
+                return render( req,'part4/forgot.html',{'user':True, 'username':data['username']})
+            except:
+                return render( req,'part4/forgot.html',{'user':False,'error':True})
+        # try:
+        #     user = User.objects.get(username = data['username'])
+        #     return render( req,'part4/forgot.html',{'user':True, 'username':data['username']})
+        # # user = User.objects.filter(username = data['username'])
+        # # user[0].set_password(data['password'])
+        # # user.save()
+        # except :
+        #     return render( req,'part4/forgot.html',{'user':False,'error':True})
+    return render(req,'part4/forgot.html',{'user':False})

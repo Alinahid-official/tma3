@@ -23,15 +23,15 @@
               <div class="fw-bold font-150" id="logo">PC Builder</div>
               <a class="pad-1 color-one" href="/part4">Home</a>
                 {% if request.user.is_authenticated %}
-                <a id='user' class="pad-1 color-one" href="#">{{request.user}}</a>
-                <a class="pad-1 color-one" href="/part4/logout">logout</a>
+                <div id='user' class="pad-1 color-one" >{{request.user}}</div>
+                <a id="logout" class="pad-1 color-one" href="/part4/logout">logout</a>
                 <a id="cart" class="pad-1 color-one" href="/part4/cart">cart</a>
                 {% else%}
                 <a class="pad-1 color-one" href="/part4/login">login</a>
                 <a class="pad-1 color-one" href="/part4/signup">register</a>
                 {% endif %}
                 <a class="pad-1 color-one" href="/part4/feedback">feedback</a>
-                <a class="pad-1 color-one" href="/part4/feedback">contact us</a>
+                <a class="pad-1 color-one" href="/part4/contact">contact us</a>
             </div>
             <div id="side-nav" class="nav-home bg-five flex jc-center">
                 <a class="pad-4 color-one" href="/documentation">Documentation</a>

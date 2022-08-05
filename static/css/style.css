@@ -360,3 +360,15 @@ button:hover{
     left :20%;
     top:2%;
 }
+
+#user{
+    position:absolute;
+    left :80%;
+    top:0;
+}
+
+#logout{
+    position:absolute;
+    left :90%;
+    top:0; 
+}
